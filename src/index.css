@@ -13,3 +13,9 @@ code {
 * {
     box-sizing: border-box;
 }
+
+#root {
+    display: flex;
+    justify-content: center;
+    background-color: RGB(33, 33, 33);
+}
