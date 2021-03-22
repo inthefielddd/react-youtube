@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import styles from "./search_header.module.css";
 
 const SearchHeader = ({ onSearch }) => {
+    //ref를통해서 input에 적은값을 가져올 것이다.
     const inputRef = useRef();
     const handleSearch = () => {
         //검색하는 결과 값 value
@@ -26,7 +27,7 @@ const SearchHeader = ({ onSearch }) => {
                 <img className={styles.img} src='/images/logo.png' alt='logo' />
                 <h1 className={styles.title}>YouTube</h1>
             </div>
-            <input ref={inputRef} className={styles.input} type='text' placeholder='Search...' onKeyPress={onKeyPress} />
+            <input ref={inputRef} className={styles.input} type='search' placeholder='Search...' onKeyPress={onKeyPress} />
             <button className={styles.button} type='submit' onClick={onClick}>
                 <img className={styles.buttonImg} src='/images/search.png' alt='search' />
             </button>

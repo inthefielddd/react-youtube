@@ -3,3 +3,21 @@
     background-color: RGB(33, 33, 33);
     color: white;
 }
+
+.content {
+    display: flex;
+}
+
+.detail {
+    flex: 1 1 70%;
+}
+
+.list {
+    flex: 1 1 30%;
+}
+
+@media screen and (max-width: 62rem) {
+    .content {
+        flex-direction: column;
+    }
+}
