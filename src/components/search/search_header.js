@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import styles from "./search_header.module.css";
 
-const SearchHeader = ({ onSearch }) => {
+const SearchHeader = memo(({ onSearch }) => {
     //ref를통해서 input에 적은값을 가져올 것이다.
     const inputRef = useRef();
     const handleSearch = () => {
@@ -21,6 +21,7 @@ const SearchHeader = ({ onSearch }) => {
             handleSearch();
         }
     };
+    console.log("Header!!!!!!!");
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
@@ -33,6 +34,6 @@ const SearchHeader = ({ onSearch }) => {
             </button>
         </header>
     );
-};
+});
 
 export default SearchHeader;

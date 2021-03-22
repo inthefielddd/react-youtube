@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./app.module.css";
 import Footer from "./components/footer/footer";
 import SearchHeader from "./components/search/search_header";
@@ -16,22 +16,25 @@ function App({ youtube }) {
     };
 
     //단어를 찾아서 값을 가져온다
-    const search = (query) => {
-        setSelectedVideo(null);
-        youtube //
-            .search(query) //값을 받아오면 setVideos를 통해서 업데이트해주기
-            .then((videos) => {
-                setVideos(videos);
-                setSelectedVideo(null);
-            });
-    };
-
+    const search = useCallback(
+        (query) => {
+            setSelectedVideo(null);
+            youtube //
+                .search(query) //값을 받아오면 setVideos를 통해서 업데이트해주기
+                .then((videos) => {
+                    setVideos(videos);
+                    setSelectedVideo(null);
+                });
+        },
+        [youtube]
+    );
     //useEffect를 통해서 인기항목 값을 가져온다
     useEffect(() => {
         youtube //
             .mostPopular()
             .then((videos) => setVideos(videos));
-    }, []);
+    }, [youtube]);
+
     return (
         <div className={styles.app}>
             <SearchHeader onSearch={search} />
